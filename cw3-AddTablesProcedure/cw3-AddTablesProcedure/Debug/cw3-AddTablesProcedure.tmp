@@ -1,0 +1,34 @@
+<ASSEMBLER_INFO>
+ <VERSION>2.1.57</VERSION>
+ <DEVICE>"ATmega32"</DEVICE>
+ <WORKING_DIR>C:\Users\Kowalik\Desktop\cw3-AddTablesProcedure\cw3-AddTablesProcedure\Debug</WORKING_DIR>
+ <INCLUDE_PATH>
+  <DIR>C:\Program Files (x86)\Atmel\Atmel Toolchain\AVR Assembler\Native\2.1.1175\avrassembler\Include</DIR>
+  <DIR></DIR>
+ </INCLUDE_PATH>
+ <SOURCE_FILE>C:\Users\Kowalik\Desktop\cw3-AddTablesProcedure\cw3-AddTablesProcedure\cw3-AddTablesProcedure.asm</SOURCE_FILE>
+ <INCLUDED_FILES>
+  <FILE>C:\Program Files (x86)\Atmel\Atmel Toolchain\AVR Assembler\Native\2.1.1175\avrassembler\Include\m32def.inc</FILE>
+ </INCLUDED_FILES>
+ <OBJECT_FILES>
+  <FILE>C:\Users\Kowalik\Desktop\cw3-AddTablesProcedure\cw3-AddTablesProcedure\Debug/cw3-AddTablesProcedure.obj</FILE>
+ </OBJECT_FILES>
+ <HEX_FILES>
+  <FILE>cw3-AddTablesProcedure.hex</FILE>
+ </HEX_FILES>
+ <OUTPUT_FILES>
+  <FILE>cw3-AddTablesProcedure.map</FILE>
+  <FILE>cw3-AddTablesProcedure.lss</FILE>
+ </OUTPUT_FILES>
+ <LABELS>
+  <tab1><FILE>C:\Users\Kowalik\Desktop\cw3-AddTablesProcedure\cw3-AddTablesProcedure\cw3-AddTablesProcedure.asm</FILE><LINE>13</LINE></tab1>
+  <tab2><FILE>C:\Users\Kowalik\Desktop\cw3-AddTablesProcedure\cw3-AddTablesProcedure\cw3-AddTablesProcedure.asm</FILE><LINE>14</LINE></tab2>
+  <START><FILE>C:\Users\Kowalik\Desktop\cw3-AddTablesProcedure\cw3-AddTablesProcedure\cw3-AddTablesProcedure.asm</FILE><LINE>42</LINE></START>
+  <NO_IRQ><FILE>C:\Users\Kowalik\Desktop\cw3-AddTablesProcedure\cw3-AddTablesProcedure\cw3-AddTablesProcedure.asm</FILE><LINE>64</LINE></NO_IRQ>
+  <DODAJ><FILE>C:\Users\Kowalik\Desktop\cw3-AddTablesProcedure\cw3-AddTablesProcedure\cw3-AddTablesProcedure.asm</FILE><LINE>67</LINE></DODAJ>
+  <loopBegin><FILE>C:\Users\Kowalik\Desktop\cw3-AddTablesProcedure\cw3-AddTablesProcedure\cw3-AddTablesProcedure.asm</FILE><LINE>86</LINE></loopBegin>
+  <bodyOfLoop><FILE>C:\Users\Kowalik\Desktop\cw3-AddTablesProcedure\cw3-AddTablesProcedure\cw3-AddTablesProcedure.asm</FILE><LINE>92</LINE></bodyOfLoop>
+  <innerCheck><FILE>C:\Users\Kowalik\Desktop\cw3-AddTablesProcedure\cw3-AddTablesProcedure\cw3-AddTablesProcedure.asm</FILE><LINE>89</LINE></innerCheck>
+  <endOfLoop><FILE>C:\Users\Kowalik\Desktop\cw3-AddTablesProcedure\cw3-AddTablesProcedure\cw3-AddTablesProcedure.asm</FILE><LINE>120</LINE></endOfLoop>
+ </LABELS>
+</ASSEMBLER_INFO>
