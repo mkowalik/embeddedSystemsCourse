@@ -1,5 +1,5 @@
 
-AVRASM ver. 2.1.57  C:\Users\Kowalik\Desktop\cw3-AddTablesProcedure\cw3-AddTablesProcedure\cw3-AddTablesProcedure.asm Wed Oct 29 22:40:53 2014
+AVRASM ver. 2.1.57  C:\Users\Kowalik\Dropbox\Studia\UkladySterujace\Sprawozdania\cw3-AddTablesProcedure\cw3-AddTablesProcedure\cw3-AddTablesProcedure.asm Tue Nov 11 17:06:59 2014
 
 [builtin](2): Including file 'C:\Program Files (x86)\Atmel\Atmel Toolchain\AVR Assembler\Native\2.1.1175\avrassembler\Include\m32def.inc'
                  
@@ -838,26 +838,26 @@ AVRASM ver. 2.1.57  C:\Users\Kowalik\Desktop\cw3-AddTablesProcedure\cw3-AddTable
                  ; ustawiamy wektor przerwañ
                  .ORG 0 
 000000 940c 002a 	jmp START
-000002 940c 0036 	jmp NO_IRQ
-000004 940c 0036 	jmp NO_IRQ
-000006 940c 0036 	jmp NO_IRQ
-000008 940c 0036 	jmp NO_IRQ
-00000a 940c 0036 	jmp NO_IRQ
-00000c 940c 0036 	jmp NO_IRQ
-00000e 940c 0036 	jmp NO_IRQ
-000010 940c 0036 	jmp NO_IRQ
-000012 940c 0036 	jmp NO_IRQ
-000014 940c 0036 	jmp NO_IRQ
-000016 940c 0036 	jmp NO_IRQ
-000018 940c 0036 	jmp NO_IRQ
-00001a 940c 0036 	jmp NO_IRQ
-00001c 940c 0036 	jmp NO_IRQ
-00001e 940c 0036 	jmp NO_IRQ
-000020 940c 0036 	jmp NO_IRQ
-000022 940c 0036 	jmp NO_IRQ
-000024 940c 0036 	jmp NO_IRQ
-000026 940c 0036 	jmp NO_IRQ
-000028 940c 0036 	jmp NO_IRQ
+000002 940c 0037 	jmp NO_IRQ
+000004 940c 0037 	jmp NO_IRQ
+000006 940c 0037 	jmp NO_IRQ
+000008 940c 0037 	jmp NO_IRQ
+00000a 940c 0037 	jmp NO_IRQ
+00000c 940c 0037 	jmp NO_IRQ
+00000e 940c 0037 	jmp NO_IRQ
+000010 940c 0037 	jmp NO_IRQ
+000012 940c 0037 	jmp NO_IRQ
+000014 940c 0037 	jmp NO_IRQ
+000016 940c 0037 	jmp NO_IRQ
+000018 940c 0037 	jmp NO_IRQ
+00001a 940c 0037 	jmp NO_IRQ
+00001c 940c 0037 	jmp NO_IRQ
+00001e 940c 0037 	jmp NO_IRQ
+000020 940c 0037 	jmp NO_IRQ
+000022 940c 0037 	jmp NO_IRQ
+000024 940c 0037 	jmp NO_IRQ
+000026 940c 0037 	jmp NO_IRQ
+000028 940c 0037 	jmp NO_IRQ
                  
                  START:
                  ; inicjujemy stos
@@ -878,11 +878,12 @@ AVRASM ver. 2.1.57  C:\Users\Kowalik\Desktop\cw3-AddTablesProcedure\cw3-AddTable
 000033 e0f0      	LDI ZH, high(LEN)
                  
                  ; wywolujemy procedure DODAJ
-000034 940e 0037 	CALL DODAJ
+000034 940e 0038 	CALL DODAJ
+000036 0000      	NOP
                  
                  ; wirtualna procedura na brak obslugi przerwania
                  NO_IRQ:
-000036 9518      	reti
+000037 9518      	reti
                  
                  DODAJ:
                  ; void DODAJ (&L1, &L2, LEN)
@@ -891,61 +892,61 @@ AVRASM ver. 2.1.57  C:\Users\Kowalik\Desktop\cw3-AddTablesProcedure\cw3-AddTable
                  ; LEN = rejestr Z
                  
                  ; odk³adamy na stos wszystkie póŸniej u¿ywane rejestry
-000037 930f      	PUSH r16
-000038 931f      	PUSH r17
-000039 932f      	PUSH r18
-00003a 920f      	PUSH r0
-00003b 921f      	PUSH r1
+000038 930f      	PUSH r16
+000039 931f      	PUSH r17
+00003a 932f      	PUSH r18
+00003b 920f      	PUSH r0
+00003c 921f      	PUSH r1
                  
                  ; zerujê rejestr w któym zapamiêtam rejestr stanu po pierwszej operacji dodawania
-00003c e000      	LDI r16, 0
+00003d e000      	LDI r16, 0
                  ; rejestry pomocnicze wykorzystywane do dodawania
-00003d e011      	LDI r17, 1
-00003e e020      	LDI r18, 0
+00003e e011      	LDI r17, 1
+00003f e020      	LDI r18, 0
                  
                  loopBegin:
-00003f 30e0      	CPI	ZL, 0 ; jeœli ZL!=0, to wykonaj pêtlê, jeœli nie to sprawdŸ ZH
-000040 f411      	BRNE bodyOfLoop 
+000040 30e0      	CPI	ZL, 0 ; jeœli ZL!=0, to wykonaj pêtlê, jeœli nie to sprawdŸ ZH
+000041 f411      	BRNE bodyOfLoop 
                  innerCheck:
-000041 30f0      	CPI ZH, 0 ; jeœli ZH!=0, to wykonaj pêtlê, jeœni nie to zakoñcz pêtlê
-000042 f069      	BREQ endOfLoop
+000042 30f0      	CPI ZH, 0 ; jeœli ZH!=0, to wykonaj pêtlê, jeœni nie to zakoñcz pêtlê
+000043 f069      	BREQ endOfLoop
                  bodyOfLoop:
                  	
                  ; g³ówna czêœæ dodawania, z uwzglêdnieniem przepe³nienia z poprzedniej operacji
-000043 bf0f      	out SREG, r16 ; przywracam wartoœæ rejestru stanu z poprzedniej operacji
-000044 900c      	LD r0, X
-000045 8018      	LD r1, Y
-000046 1c01      	ADC r0, r1 ; dodajê to co pod adresem Y do tego co pod adresem X
-000047 920c      	ST X, r0 ; zapisujê wynik do komórki pod adresem X
-000048 b70f      	in r16, SREG ; zapisujê rejestr stanu. Operacja ST nie modyfikuje go, wiêc mogê to zrobiæ teraz
+000044 bf0f      	out SREG, r16 ; przywracam wartoœæ rejestru stanu z poprzedniej operacji
+000045 900c      	LD r0, X
+000046 8018      	LD r1, Y
+000047 1c01      	ADC r0, r1 ; dodajê to co pod adresem Y do tego co pod adresem X
+000048 920c      	ST X, r0 ; zapisujê wynik do komórki pod adresem X
+000049 b70f      	in r16, SREG ; zapisujê rejestr stanu. Operacja ST nie modyfikuje go, wiêc mogê to zrobiæ teraz
                  
                  ; odejmujê 1 od pary XL, XH, od XL normalnie, a od XH tylko jeœli by³a ustawiona carry flag - wynik dodawania
-000049 0fa1      	ADD XL, r17
-00004a 1fb2      	ADC XH, r18
+00004a 0fa1      	ADD XL, r17
+00004b 1fb2      	ADC XH, r18
                  
                  ; odejmujê 1 od pary YL, YH, j.w. - sk³adnik dodawania
-00004b 0fc1      	ADD YL, r17
-00004c 1fd2      	ADC YH, r18
+00004c 0fc1      	ADD YL, r17
+00004d 1fd2      	ADC YH, r18
                  
                  ; odejmujê 1 od pary ZL, XHm j.w. - iterator
-00004d 50e1      	SUBI ZL, 1
-00004e 40f0      	SBCI ZH, 0
+00004e 50e1      	SUBI ZL, 1
+00004f 40f0      	SBCI ZH, 0
                  
                  ; powrót na pocz¹tek pêtli
-00004f cfef      	RJMP loopBegin
+000050 cfef      	RJMP loopBegin
                  
                  
                  ; w tym momencie wynik powinien byæ w pamiêci o adresie X
                  
                  endOfLoop:
                  ; przywracamy wszystkie uzywane rejestry wczesniej zapisane na stos
-000050 901f      	POP r1
-000051 900f      	POP r0
-000052 912f      	POP r18
-000053 911f      	POP r17
-000054 910f      	POP r16
+000051 901f      	POP r1
+000052 900f      	POP r0
+000053 912f      	POP r18
+000054 911f      	POP r17
+000055 910f      	POP r16
                  ; powrót z funkcji
-000055 9508      	RET
+000056 9508      	RET
 
 
 RESOURCE USE INFORMATION
@@ -983,19 +984,19 @@ cpi   :   2 cpse  :   0 dec   :   0 eor   :   0 fmul  :   0 fmuls :   0
 fmulsu:   0 icall :   0 ijmp  :   0 in    :   1 inc   :   0 jmp   :  21 
 ld    :   2 ldd   :   0 ldi   :  11 lds   :   0 lpm   :   0 lsl   :   0 
 lsr   :   0 mov   :   0 movw  :   0 mul   :   0 muls  :   0 mulsu :   0 
-neg   :   0 nop   :   0 or    :   0 ori   :   0 out   :   3 pop   :   5 
+neg   :   0 nop   :   1 or    :   0 ori   :   0 out   :   3 pop   :   5 
 push  :   5 rcall :   0 ret   :   1 reti  :   1 rjmp  :   1 rol   :   0 
 ror   :   0 sbc   :   0 sbci  :   1 sbi   :   0 sbic  :   0 sbis  :   0 
 sbiw  :   0 sbr   :   0 sbrc  :   0 sbrs  :   0 sec   :   0 seh   :   0 
 sei   :   0 sen   :   0 ser   :   0 ses   :   0 set   :   0 sev   :   0 
 sez   :   0 sleep :   0 spm   :   0 st    :   1 std   :   0 sts   :   0 
 sub   :   0 subi  :   1 swap  :   0 tst   :   0 wdr   :   0 
-Instructions used: 19 out of 113 (16.8%)
+Instructions used: 20 out of 113 (17.7%)
 
 "ATmega32" memory use summary [bytes]:
 Segment   Begin    End      Code   Data   Used    Size   Use%
 ---------------------------------------------------------------
-[.cseg] 0x000000 0x0000ac    172      0    172   32768   0.5%
+[.cseg] 0x000000 0x0000ae    174      0    174   32768   0.5%
 [.dseg] 0x000060 0x000080      0     32     32    2048   1.6%
 [.eseg] 0x000000 0x000000      0      0      0    1024   0.0%
 

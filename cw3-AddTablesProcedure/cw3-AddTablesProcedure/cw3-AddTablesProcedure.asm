@@ -59,6 +59,7 @@ START:
 
 ; wywolujemy procedure DODAJ
 	CALL DODAJ
+	NOP
 
 ; wirtualna procedura na brak obslugi przerwania
 NO_IRQ:
